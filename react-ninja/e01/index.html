@@ -24,7 +24,10 @@
       var h1 = React.createElement('h1', null, 'React with CDNJS ')
 
       //create nested element
-      var h1Span = React.createElement('h1', null, 'React with CDNJS ', React.createElement('span', null, 'Span text'))
+      var h1Span = React.createElement('h1', null, 'React with CDNJS ', [
+         React.createElement('span', null, 'Span text'),
+         React.createElement('span', null, ' Span text 2')
+      ])
       // render element
       // ReactDOM.render(h1, document.getElementById('app'))
       ReactDOM.render(h1Span, document.getElementById('app'))
