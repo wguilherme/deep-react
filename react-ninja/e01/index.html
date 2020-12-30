@@ -13,6 +13,8 @@
    <div id="app2"></div>
    <div id="app3"></div>
    <div id="app4"></div>
+   <div id="app5"></div>
+   <div id="app6"></div>
 
    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.js"
       integrity="sha512-bPEAI/w5skhB3Kchsnt+R/e9Bvaije6PJhB5FBy6CRzUC9dB52NS9e7OK2LJQfdOUJdTkIMvA+ioWjEMYv37Jg=="
@@ -25,19 +27,19 @@
    <script>
       console.log(React)
       // create element
-      var h1 = React.createElement('h1', null, 'React with CDNJS ')
+      var h1 = React.createElement('h1', null, 'Simple element with createElement ')
 
       //create nested element
-      var h1Span = React.createElement('h1', null, 'React with CDNJS ', [
-         React.createElement('span', null, 'Span text '),
-         React.createElement('span', null, 'Span text 2')
+      var h1Span = React.createElement('h1', null, 'Nested element ', [
+         React.createElement('span', null, 'Span tag'),
+         React.createElement('span', null, 'Span tag 2')
       ])
 
       //create nested element with simplified way
 
       var h1Simplified = React.DOM.h1(null, [
-         React.DOM.span(null, React.DOM.i(null, 'Itálico ')),
-         React.DOM.span(null, 'Texto do Span')
+         React.DOM.span(null, React.DOM.i(null, 'Nested element with simplified way ')),
+         React.DOM.span(null, 'Span tag')
       ])
 
       // render element
@@ -48,11 +50,46 @@
    </script>
 
    <script type="text/babel">
-      //create element wit JSX
+
+
+      var Title = React.createClass({
+         render: function () {
+            return <h1>createClass component single line</h1>
+         }
+      })
+
+      // Element with break line
+      var Title2 = React.createClass({
+         render: function () {
+            return (
+               <h3>createClass element with break line</h3>
+            )
+         }
+      })
+      // More than one element wrapping elements with a tag
+      var Title2 = React.createClass({
+         render: function () {
+            return (
+               <div>
+                  <h3>More than one element</h3>
+                  <p>This component have two html tags</p>
+               </div>
+            )
+         }
+      })
+
+
+      //create element with JSX
       ReactDOM.render(
-         <h1>Hello World!</h1>,
+         <h1>Simple element with ReactDOM.render and JSX with babel</h1>,
          document.getElementById('app4')
       )
+      // rendering a component created with createClass
+      ReactDOM.render(
+         <Title />,
+         document.getElementById('app5')
+      )
+
    </script>
 
 </body>
