@@ -10,6 +10,8 @@
 <body>
 
    <div id="app"></div>
+   <div id="app2"></div>
+   <div id="app3"></div>
 
    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.js"
       integrity="sha512-bPEAI/w5skhB3Kchsnt+R/e9Bvaije6PJhB5FBy6CRzUC9dB52NS9e7OK2LJQfdOUJdTkIMvA+ioWjEMYv37Jg=="
@@ -25,12 +27,21 @@
 
       //create nested element
       var h1Span = React.createElement('h1', null, 'React with CDNJS ', [
-         React.createElement('span', null, 'Span text'),
-         React.createElement('span', null, ' Span text 2')
+         React.createElement('span', null, 'Span text '),
+         React.createElement('span', null, 'Span text 2')
+      ])
+
+      //create nested element with simplified way
+
+      var h1Simplified = React.DOM.h1(null, [
+         React.DOM.span(null, React.DOM.i(null, 'Itálico ')),
+         React.DOM.span(null, 'Texto do Span')
       ])
       // render element
       // ReactDOM.render(h1, document.getElementById('app'))
-      ReactDOM.render(h1Span, document.getElementById('app'))
+      ReactDOM.render(h1, document.getElementById('app'))
+      ReactDOM.render(h1Span, document.getElementById('app2'))
+      ReactDOM.render(h1Simplified, document.getElementById('app3'))
    </script>
 
 </body>
